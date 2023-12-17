@@ -1,0 +1,86 @@
+package Programs;
+
+import java.util.Scanner;
+
+public class ArmstrongNumber {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the Number to check Armstrong Numbers : ");
+		
+		int n1=sc.nextInt();
+	
+		boolean armstrong=isArmstrong(n1);
+		
+		if(armstrong)
+		{
+			System.out.println("Armstrong");
+		}
+		else
+		{
+			System.out.println("not armstrong");
+		}
+		
+		System.out.println("enter the 2 numbers to check the range for ");
+		
+		int num1=sc.nextInt();
+		int num2=sc.nextInt();
+		
+		IsRangeArmstrong(num1,num2);
+
+	}
+	
+	protected static boolean isArmstrong(int n)
+	{
+		int c=0;
+		
+		int temp = n;
+		int temp1=n;
+		
+		int sum=0;
+		
+		while(n>0)
+		{
+			c++;
+			
+			n=n/10;
+		}
+		
+		while(temp>0)
+		{
+			int rem=temp%10;
+			
+			sum=sum+(int)(Math.pow(rem,c));
+			
+			temp=temp/10;
+			
+		}
+		
+		if(temp1==sum)
+		{
+			return true;
+		}
+		return false;
+	}
+	
+	
+	private static void IsRangeArmstrong(int n1,int n2)
+	{
+		int count=0;
+		for(int i=n1;i<=n2;i++)
+		{
+			if(isArmstrong(i))
+			{
+				count++;
+				System.out.println(i);
+			}
+		}
+		
+		System.out.println("The Number Count is: " + count);
+	}
+	
+	
+
+}
